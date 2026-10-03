@@ -1,0 +1,10 @@
+{
+  "name": "xinzha-weekly-letter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "信札 · 每周 AI 回信页（静态页面，示例数据为虚构）",
+  "scripts": {
+    "dev": "node scripts/serve.mjs 5173",
+    "preview": "node scripts/serve.mjs 5173"
+  }
+}

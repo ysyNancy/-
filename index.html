@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F4F0E7">
+<title>信札</title>
+<meta name="description" content="信札 · 每周 AI 回信：本周来信、周回顾与往期。页面内人物与数据均为虚构示例。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<!-- 铅笔线稿素材：花枝、心结、信封标记与图标 -->
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <symbol id="sprig" viewBox="0 0 140 110">
+    <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+      <path d="M2 106C28 106 52 100 60 84C67 70 60 56 48 56C39 56 36 66 43 70C47 72 51 69 50 65"/>
+      <path d="M58 88C70 80 84 80 92 86"/>
+      <path d="M52 57C50 44 54 32 62 24"/>
+      <path d="M40 103C46 93 40 85 32 85C26 85 25 92 30 94"/>
+      <path d="M48 56C40 48 30 46 24 50"/>
+      <path d="M74 82C78 73 87 70 94 73C100 76 99 83 94 83"/>
+    </g>
+    <g fill="currentColor">
+      <path transform="translate(92 86) rotate(127)" d="M0 0C-1.2-1.8-3.4-3.6-3.4-5.8C-3.4-7.4-1.4-8 0-6.3C1.4-8 3.4-7.4 3.4-5.8C3.4-3.6 1.2-1.8 0 0Z"/>
+      <path transform="translate(62 24) rotate(45)" d="M0 0C-1.2-1.8-3.4-3.6-3.4-5.8C-3.4-7.4-1.4-8 0-6.3C1.4-8 3.4-7.4 3.4-5.8C3.4-3.6 1.2-1.8 0 0Z"/>
+      <path transform="translate(24 50) rotate(-124)" d="M0 0C-1.2-1.8-3.4-3.6-3.4-5.8C-3.4-7.4-1.4-8 0-6.3C1.4-8 3.4-7.4 3.4-5.8C3.4-3.6 1.2-1.8 0 0Z"/>
+      <circle cx="70" cy="97" r=".9"/>
+      <circle cx="82" cy="93" r=".7"/>
+    </g>
+  </symbol>
+  <symbol id="knot" viewBox="0 0 200 36">
+    <g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round">
+      <path d="M8 30H84C92 30 98 28 104 22C110 16 112 8 107 5.5C102.5 3.3 99.8 7 100 11"/>
+      <path d="M192 30H116C108 30 102 28 96 22C90 16 88 8 93 5.5C97.5 3.3 100.2 7 100 11"/>
+      <path d="M24 33.5H72M128 33.5H176" opacity=".55"/>
+    </g>
+  </symbol>
+  <symbol id="mark" viewBox="0 0 28 22">
+    <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+      <rect x="1.5" y="4" width="25" height="16.5"/>
+      <path d="M1.5 4L14 13.5L26.5 4"/>
+    </g>
+    <path fill="currentColor" d="M14 19.6C13.2 18.8 11.6 17.6 11.6 16.4C11.6 15.6 12.2 15 13 15C13.5 15 13.8 15.3 14 15.6C14.2 15.3 14.5 15 15 15C15.8 15 16.4 15.6 16.4 16.4C16.4 17.6 14.8 18.8 14 19.6Z"/>
+  </symbol>
+  <symbol id="i-link" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#letter">跳到本封来信</a>
+
+<header class="topbar">
+  <a class="brand" href="#letter" data-jump>
+    <svg class="brand__mark" aria-hidden="true"><use href="#mark"/></svg>
+    <span class="brand__name">信札</span>
+    <span class="brand__sub">每周 AI 回信</span>
+  </a>
+  <nav class="jump" aria-label="页面分区">
+    <a href="#letter" data-jump>信件</a>
+    <a href="#review" data-jump>回顾</a>
+    <a href="#archive" data-jump>往期</a>
+  </nav>
+  <p class="topbar__next" id="next-letter"></p>
+</header>
+
+<main class="layout">
+  <article id="letter" class="letter" aria-labelledby="letter-title"></article>
+  <aside id="review" class="panel review" aria-labelledby="review-title"></aside>
+  <nav id="archive" class="panel archive" aria-labelledby="archive-title"></nav>
+</main>
+
+<footer class="foot">
+  <svg class="foot__knot" aria-hidden="true"><use href="#knot"/></svg>
+  <p>信札 · 每周日 21:00 寄出 · 本页人物、对话与数据均为虚构示例</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
